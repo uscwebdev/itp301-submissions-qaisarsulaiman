@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qaisar Sulaiman | Student Page</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: "Open Sans", sans-serif;
+            background-color: #fbfbfb;
+            animation: none;
+        }
+        div {
+            padding: 20px 0;
+        }
+        #header {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .col-2 {
+            width: 50%;
+            float: left;
+        }
+        ul, ol, li {
+            margin: 0;
+            padding: 0;
+            padding-left: 18px;
+        }
+        a {
+            color: #556b2f;
+            text-decoration: none;
+            animation: none;
+            text-shadow: 0px 0px 5px #fbfbfb;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fav-color {
+            0% {
+                background-color: #556b2f;
+            }
+            30% {
+                background-color: #556b2f;
+            }
+            100% {
+                background-color: #fbfbfb;
+            }
+        }
+        @keyframes fav-color-links {
+            0% {
+                color: #fbfbfb;
+            }
+            30% {
+                color: #fbfbfb;
+            }
+            100% {
+                color: #556b2f;
+            }
+        }
+        .button {
+            appearance: none;
+            background-color: #FAFBFC;
+            border: 1px solid rgb(85, 107, 47, 0.5);
+            border-radius: 6px;
+            box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+            box-sizing: border-box;
+            color: #556b2f;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            list-style: none;
+            padding: 6px 16px;
+            position: relative;
+            transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+            white-space: nowrap;
+            word-wrap: break-word;
+        }
+
+        .button:hover {
+            background-color: #F3F4F6;
+            text-decoration: none;
+            transition-duration: 0.1s;
+        }
+
+        .button:disabled {
+            background-color: #FAFBFC;
+            border-color: rgba(27, 31, 35, 0.15);
+            color: #959DA5;
+            cursor: default;
+        }
+
+        .button:active {
+            background-color: #EDEFF2;
+            box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+            transition: none 0s;
+        }
+
+        .button:focus {
+            outline: 1px transparent;
+        }
+
+        .button:before {
+            display: none;
+        }
+
+        .button:-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Qaisar Sulaiman</h1>
+        <a href="mailto:qsulaima@usc.edu">qsulaima@usc.edu</a>
+        <div style="text-align: center; padding-top: 30px;">
+            <button class="button">Favorite Color</button>
+        </div>
+    </div> <!-- End header -->
+    <hr>
+    <div id="main">
+        <div id="assignments" class="col-2">
+            <h2>Assignments</h2>
+            <ol>
+                <li><a href="assignment01/index.html">JS Photo Gallery</a></li>
+            </ol>
+        </div> <!-- End assignments -->
+        <div id="labs" class="col-2">
+            <h2>Labs</h2>
+            <ol>
+                <li><a href="index.html">Student Page</a></li>
+            </ol>
+        </div> <!-- End labs -->
+    </div> <!-- End main -->
+    <script>
+        document.querySelector(".button").onclick = function(){
+            console.log("test");
+            document.querySelector("body").style.animation = "fav-color 2s"
+            setTimeout(function() {
+                document.querySelector("body").style.animation = "none"
+            }, 2000);
+            // document.querySelector("a").style.animation = "fav-color-links 2s"
+        }
+    </script>
+</body>
+</html>
