@@ -11,22 +11,30 @@
         body {
             margin: 0;
             font-family: "Open Sans", sans-serif;
-            background-color: #fbfbfb;
+            background-color: #f6f6f6;
             animation: none;
             border-top: 8px solid #556b2f;
         }
         div {
             padding: 20px 0;
         }
+        #main {
+            padding: 0;
+        }
         #container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 780px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
         }
         #header {
             text-align: center;
         }
         h1 {
             font-size: 2.5em;
+            margin-top: 0;
         }
         .col-2 {
             width: 50%;
@@ -41,7 +49,6 @@
             color: #556b2f;
             text-decoration: none;
             animation: none;
-            text-shadow: 0px 0px 5px #fbfbfb;
         }
         a:hover {
             text-decoration: underline;
@@ -54,18 +61,7 @@
                 background-color: #556b2f;
             }
             100% {
-                background-color: #fbfbfb;
-            }
-        }
-        @keyframes fav-color-links {
-            0% {
-                color: #fbfbfb;
-            }
-            30% {
-                color: #fbfbfb;
-            }
-            100% {
-                color: #556b2f;
+                background-color: #f6f6f6;
             }
         }
         .button {
@@ -124,6 +120,9 @@
         .button:-webkit-details-marker {
             display: none;
         }
+        .clear-float {
+            clear: both;
+        }
     </style>
 </head>
 <body>
@@ -149,6 +148,7 @@
                     <li><a href="index.html">Student Page</a></li>
                 </ol>
             </div> <!-- End labs -->
+            <div class="clear-float"></div>
         </div> <!-- End main -->
     </div> <!-- End container -->
     <script>
@@ -158,7 +158,6 @@
             setTimeout(function() {
                 document.querySelector("body").style.animation = "none"
             }, 2000);
-            // document.querySelector("a").style.animation = "fav-color-links 2s"
         }
     </script>
 </body>
