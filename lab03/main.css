@@ -1,0 +1,32 @@
+body {
+    background-color: #fcfcfc;
+}
+#logo {
+    width: 150px;
+    height: auto;
+}
+.img-product {
+    height: 200px;
+    width: auto;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 5px 5px 10px rgba(211, 211, 211, 0.5);
+}
+.border-hover {
+    transition: all 0.5s;
+}
+.border-hover:hover {
+    border: 1px solid rgba(13, 110, 253, 0.5) !important;
+}
+.img-info {
+    margin-top: 15px;
+}
+button {
+    margin: 15px 0;
+}
+.clear-float {
+    clear: both;
+}
+#add-funds-form {
+    width: 200px;
+}

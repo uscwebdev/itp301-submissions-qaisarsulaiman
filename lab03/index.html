@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart w/ Funds | Lab 03</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container-md">
+        <div class="row">
+            <div class="col p-2 align-items-center">
+                <h1 class="display-1">Shop Nike</h1>
+                <h2>Trending</h2>
+            </div>
+            <div class="col p-2">
+                <img src="img/nike.png" alt="Nike logo" id="logo" class="float-end">
+            </div>
+        </div>
+    </div>
+    <div class="container-md">
+        <div class="row">
+            <div class="col p-2">
+                <h3 class="float-end">Cart Subtotal: <span class="text-primary">$<span id="price">0</span></span></h3>
+                <h3>My Cart</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container-md" id="container-main">
+        <div class="row"> 
+            <div class="col-lg-3 col-md-6 p-2">
+                <div class="container-fluid bg-white border border-hover">
+                    <img src="img/info-circle.svg" alt="Info" class="float-end img-info">
+                    <div class="clear-float"></div>
+                    <img src="img/nike-1.webp" alt="Nike Dunk Low" class="img-product">
+                    <br>
+                    <p class="float-end lead">$110</p>
+                    <p class="lead">Nike Dunk Low<br><span class="text-primary small">White/Oil Green/Cargo Khaki</span></p>
+                    <p class="float-end text-black-50"><br>Quantity: <span id="quantity-1">0</span></p>
+                    <button type="button" class="btn btn-primary" id="btn-1">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 p-2">
+                <div class="container-fluid bg-white border border-hover">
+                    <img src="img/info-circle.svg" alt="Info" class="float-end img-info">
+                    <div class="clear-float"></div>
+                    <img src="img/nike-2.webp" alt="Nike Romaleos" class="img-product">
+                    <br>
+                    <p class="float-end lead">$200</p>
+                    <p class="lead">Nike Romaleos 4<br><span class="text-primary small">White/Frosted Black</span></p>
+                    <p class="float-end text-black-50"><br>Quantity: <span id="quantity-2">0</span></p>
+                    <button type="button" class="btn btn-primary" id="btn-2">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 p-2">
+                <div class="container-fluid bg-white border border-hover">
+                    <img src="img/info-circle.svg" alt="Info" class="float-end img-info">
+                    <div class="clear-float"></div>
+                    <img src="img/nike-3.webp" alt="Nike Dunk Low" class="img-product">
+                    <br>
+                    <p class="float-end lead">$175</p>
+                    <p class="lead">Nike Air Max 97<br><span class="text-primary small">Olive/Sequoia/Light Silver</span></p>
+                    <p class="float-end text-black-50"><br>Quantity: <span id="quantity-3">0</span></p>
+                    <button type="button" class="btn btn-primary" id="btn-3">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 p-2">
+                <div class="container-fluid bg-white border border-hover">
+                    <img src="img/info-circle.svg" alt="Info" class="float-end img-info">
+                    <div class="clear-float"></div>
+                    <img src="img/nike-4.webp" alt="Nike Dunk Low" class="img-product">
+                    <br>
+                    <p class="float-end lead">$105</p>
+                    <p class="lead">Nike Blazer Mid '77<br><span class="text-primary small">White/Sail/Peach/Black</span></p>
+                    <p class="float-end text-black-50"><br>Quantity: <span id="quantity-4">0</span></p>
+                    <button type="button" class="btn btn-primary" id="btn-4">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col p-2">
+                <br>
+                <h3>Remaining Funds: <span class="text-primary">$<span id="funds">0</span></span></h3>
+                <input type="text" id="add-funds-form" class="form-control float-start mt-3 me-3">
+                <button id="add-funds-btn" class="btn btn-primary btn-dark">Add Funds</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-md">
+        <div class="row">
+            <div class="col p-2">
+                <a href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&uxId=com.nike.commerce.nikedotcom.web&country=US&language=en&requestType=redirect" class="float-end p-2">Nike Privacy Policy</a>
+                <a href="https://agreementservice.svs.nike.com/us/en_us/rest/agreement?agreementType=termsOfUse&uxId=com.nike.commerce.nikedotcom.web&country=US&language=en&requestType=redirect" class="float-end p-2">Terms of Use</a>
+                <p class="p-2">© 2023 Nike, Inc. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // NEW: Global variables for funds
+        var funds = 0
+
+        // NEW: When user's click on the add funds button, add it to "funds" and clear the input.
+        document.querySelector("#add-funds-btn").onclick = function(){
+            // NEW: Get value of input field and store as a variable
+            var addFunds = document.querySelector("#add-funds-form").value;
+            // NEW: Add funds to global variable after making it an integer
+            addFunds = parseInt(addFunds);
+            funds += addFunds;
+            // NEW: Set funds in HTML to equal the new funds value
+            document.querySelector("#funds").innerHTML = funds;
+            // NEW: Clear the input field
+            document.querySelector("#add-funds-form").value = "";
+        }
+
+        // Workflow:
+        // 1. Declare a global variable, price, with an integer value of 0
+        // 2. Select via unique ID a button
+        // 3. Add specific button price to global variable
+        // 4. Select the ID #price and change its innerHTML to new value of var price
+        // 5. Optional: Iterate quantity for each item as well: obtain quantity, iterate, display new quantity
+
+        // 1. Declare a global variable, price, with an integer value of 0
+        var price = 0;
+        // 2. Select via unique ID a button
+        document.querySelector("#btn-1").onclick = function(){
+            // NEW: Before executing code, check if funds > price of the item.
+            if (funds >= 110) {
+                // 3. Add specific button price to global variable
+                price += 110;
+                // NEW: Subtract the price from the funds
+                funds -= 110;
+                // 4. Select the ID #price and change its innerHTML to new value of var price
+                document.querySelector("#price").innerHTML = price;
+                // NEW: Do the same, but with funds
+                document.querySelector("#funds").innerHTML = funds;
+                // 5. Optional: Iterate quantity for each item as well
+                var quantity = document.querySelector("#quantity-1").innerHTML;
+                quantity++;
+                document.querySelector("#quantity-1").innerHTML = quantity;
+            } else {
+                alert("Insufficient funds.")
+            }
+        }
+        document.querySelector("#btn-2").onclick = function(){
+            if (funds >= 200) {
+                price += 200;
+                funds -= 200;
+                document.querySelector("#price").innerHTML = price;
+                document.querySelector("#funds").innerHTML = funds;
+                var quantity = document.querySelector("#quantity-2").innerHTML;
+                quantity++;
+                document.querySelector("#quantity-2").innerHTML = quantity;
+            } else {
+                alert("Insufficient funds.")
+            }
+        }
+        document.querySelector("#btn-3").onclick = function(){
+            if (funds >= 175) {
+                price += 175;
+                funds -= 175;
+                document.querySelector("#price").innerHTML = price;
+                document.querySelector("#funds").innerHTML = funds;
+                var quantity = document.querySelector("#quantity-3").innerHTML;
+                quantity++;
+                document.querySelector("#quantity-3").innerHTML = quantity;
+            } else {
+                alert("Insufficient funds.")
+            }
+        }
+        document.querySelector("#btn-4").onclick = function(){
+            if (funds >= 105) {
+                price += 105;
+                funds -= 105;
+                document.querySelector("#price").innerHTML = price;
+                document.querySelector("#funds").innerHTML = funds;
+                var quantity = document.querySelector("#quantity-4").innerHTML;
+                quantity++;
+                document.querySelector("#quantity-4").innerHTML = quantity;
+            } else {
+                alert("Insufficient funds.")
+            }
+        }
+    </script>
+</body>
+</html>
