@@ -147,7 +147,10 @@
         document.querySelector("#cdot").onclick = function(){
             displayValue = document.querySelector("#display").value;
             // SPECIAL CASE: For decimals, always just append the dot.
-            document.querySelector("#display").value = displayValue + ".";
+            // But first, check if the string already has a dot...
+            if (displayValue.includes(".") == false) {
+                document.querySelector("#display").value = displayValue + "."; 
+            } // Else, do nothing...
         }
         // Clearing the calculator
         document.querySelector("#AC").onclick = function(){
