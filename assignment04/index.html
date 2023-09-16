@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liar's Dice | Qaisar Sulaiman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .thumbnails {
+            width: 20%;
+            float: left;
+            padding: 5px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .clear_float {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-sm">
+        <div class="col p-3">
+            <h1 class="">Liar's Dice</h1>
+            <h2 class="text-secondary mb-3">Enter your guess:</h2>
+            <input id="guess" class="form-control float-start" type="text" style="width: 200px;">
+            <button id="submit-guess" class="btn btn-primary btn-primary ms-3">Submit</button>
+        </div>
+        <div class="col p-3">
+            <div class="thumbnails">
+                <img src="dice_images/1.png" alt="Number 1 on the dice">
+            </div>
+            <div class="thumbnails">
+                <img src="dice_images/1.png" alt="Number 1 on the dice">
+            </div>
+            <div class="thumbnails">
+                <img src="dice_images/1.png" alt="Number 1 on the dice">
+            </div>
+            <div class="thumbnails">
+                <img src="dice_images/1.png" alt="Number 1 on the dice">
+            </div>
+            <div class="thumbnails">
+                <img src="dice_images/1.png" alt="Number 1 on the dice">
+            </div>
+            <div class="clear_float"></div>
+        </div>
+        <div class="col p-3">
+            <h2 id="result">Feeling lucky?</h2>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        // Function parameter: number of random integers to generate from 1-6
+        function GenerateRandomNumbers(num){
+            // Create empty array
+            var randomNumbers = [];
+            // For loop for number of random integers to generate
+            for (var i = 0; i < num; i++) {
+                // Generate random number from 1-6, append to array
+                randomNumbers.push(Math.floor(Math.random()*6+1));
+            }
+            // Return the array
+            return randomNumbers
+        }
+
+        // On button click...
+        document.querySelector("#submit-guess").onclick = function(){
+            // By default, assume a loss
+            var win = false;
+            // Store the input field as "userChoice"
+            var userChoice = document.querySelector("#guess").value;
+            // Call the function for 5 integers and store to "randomNumbers"
+            var randomNumbers = GenerateRandomNumbers(5);
+            // Store all images of dice in an array as "thumbnails"
+            var thumbnails = document.querySelectorAll("img");
+            // For all 5 die...
+            for (var i = 0; i < 5; i++) {
+                // In the array at index i, change "src" attribute to that of the random number
+                thumbnails[i].src = "dice_images/" + randomNumbers[i] + ".png";
+                // Change the alt tag as well
+                thumbnails[i].alt = "Number " + randomNumbers[i] + " on the dice";
+                // While it is looping, if the "userChoice" equals this index of array "randomNumbers":
+                if (userChoice == randomNumbers[i]) {
+                    // If at any point it does, "win" will be set to true
+                    win = true;
+                } 
+            }
+            // After the loop is complete, based off the "win" boolean, display either a win or loss message
+            if (win) {
+                document.querySelector("#result").innerHTML = "At least one of the dice landed on " + userChoice + "!";
+                document.querySelector("#result").style.color = "green";
+            } else {
+                document.querySelector("#result").innerHTML = "Unfortunately, none of the die landed on " + userChoice + ".";
+                document.querySelector("#result").style.color = "darkred";
+            }
+        }            
+    </script>
+</body>
+</html>
