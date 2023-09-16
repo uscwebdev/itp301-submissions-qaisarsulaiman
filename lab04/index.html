@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>JS Photo Gallery | Qaisar Sulaiman</title>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0; 
+            border-top: 5px solid orange; 
+        }
+        #main {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .photo {
+            width: 170px;
+            height: 200px;
+            margin: 15px;
+            float: left;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .photo img {
+            width: auto;
+            height: 200px;
+        }
+        .main-photo {
+
+        }
+        .main-photo img {
+            width: 764px;
+            border-radius: 20px;
+            box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+        }
+        .clear-float {
+            clear: both;
+        }
+        .photo:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>JavaScript Photo Gallery</h1>
+        <div id="photos-container">
+            <div class="photo" id="peaches">
+                <img src="images/peaches.jpg" alt="Peaches">
+            </div>
+            <div class="photo" id="green-apples">
+                <img src="images/green-apples.jpg" alt="Green Apples">
+            </div>
+            <div class="photo" id="blueberries">
+                <img src="images/blueberries.jpg" alt="Blueberries">
+            </div>
+            <div class="photo" id="sweet-potato">
+                <img src="images/sweet-potato.jpg" alt="Sweet Potatoes">
+            </div>
+            <div class="photo" id="mango">
+                <img src="images/mangoes.jpg" alt="Mangoes">
+            </div>
+            <div class="photo" id="strawberry">
+                <img src="images/strawberries.webp" alt="Strawberries">
+            </div>
+            <div class="photo" id="tomato">
+                <img src="images/tomato.jpg" alt="Tomatoes">
+            </div>
+            <div class="photo" id="onion">
+                <img src="images/onion.jpg" alt="Onions">
+            </div>
+            <div class="clear-float"></div>
+            <br>
+            <div class="main-photo">
+                <img id="main-photo" src="images/peaches.jpg" alt="Peaches">
+                <p id="caption">Peaches</p>
+            </div>
+        </div>
+    </div><br><br>
+    <script>
+        /***** NEW Javascript *****/
+
+        var photos = document.querySelectorAll(".photo");
+
+        for (var i = 0; i < photos.length; i++) {
+            photos[i].onclick = function(){
+                var img_src = this.children[0].src;
+                console.log(img_src);
+                var img_alt = this.children[0].alt;
+                console.log(img_alt);
+                ChangeMainImage(img_src, img_alt);
+            }
+        }
+
+        function ChangeMainImage(img_src, img_alt) {
+            document.querySelector("#main-photo").src = img_src;
+            document.querySelector("#main-photo").alt = img_alt;
+            document.querySelector("#caption").innerHTML = img_alt;
+        }
+
+        /***** Old Javascript *****/
+
+        // document.querySelector("#peaches").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/peaches.jpg";
+        //     document.querySelector("#main-photo").alt = "Peaches";
+        // }
+        // document.querySelector("#green-apples").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/green-apples.jpg";
+        //     document.querySelector("#main-photo").alt = "Green Apples";
+        // }
+        // document.querySelector("#blueberries").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/blueberries.jpg";
+        //     document.querySelector("#main-photo").alt = "Blueberries";
+        // }
+        // document.querySelector("#sweet-potato").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/sweet-potato.jpg";
+        //     document.querySelector("#main-photo").alt = "Sweet Potatoes";
+        // }
+        // document.querySelector("#mango").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/mangoes.jpg";
+        //     document.querySelector("#main-photo").alt = "Mangoes";
+        // }
+        // document.querySelector("#strawberry").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/strawberries.webp";
+        //     document.querySelector("#main-photo").alt = "Strawberries";
+        // }
+        // document.querySelector("#tomato").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/tomato.jpg";
+        //     document.querySelector("#main-photo").alt = "Tomatoes";
+        // }
+        // document.querySelector("#onion").onclick = function (){
+        //     document.querySelector("#main-photo").src = "images/onion.jpg";
+        //     document.querySelector("#main-photo").alt = "Onions";
+        // }
+    </script>
+</body>
+</html>
