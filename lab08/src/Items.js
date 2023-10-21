@@ -79,10 +79,10 @@ function Item(prop) {
           <span className="fs-4 text-dark">${prop.price}</span> USD
         </p>
         <p className="mt-1">{prop.name}</p>
-        <div class="btn-group mb-3 border" role="group">
+        <div className="btn-group mb-3 border" role="group">
           <button
             type="button"
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             onClick={handleSubtract}
           >
             –
