@@ -1,0 +1,43 @@
+.gradient-text {
+  color: transparent;
+  background: linear-gradient(
+    115deg,
+    rgb(255, 126, 165) 0%,
+    rgba(64, 166, 215, 1) 33%,
+    rgb(188, 140, 77) 50%,
+    rgba(174, 100, 188, 1) 70%,
+    rgba(64, 166, 215, 1) 85%,
+    rgba(64, 166, 215, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 200%;
+  animation: moving-gradient 15s infinite;
+}
+
+.items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.items > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes moving-gradient {
+  0% {
+    background-position: 0% 0%;
+    filter: brightness(1.2);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: brightness(1.2);
+  }
+  100% {
+    background-position: 0% 0%;
+    filter: brightness(1.2);
+  }
+}
